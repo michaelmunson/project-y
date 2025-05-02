@@ -1,4 +1,4 @@
-### LLM Runtime
+# LLM Runtime
 Allow an LLM to manage its context by executing subroutines in an isolated context and only returning the necessary results
 
 ## General idea
@@ -13,14 +13,14 @@ avoids overly large context that would otherwise be needed for long tasks.
 
 ## Keywords & syntax
 
-# RETURN (<value>.*)
+### RETURN (<value>.*)
   - returns the value from the current stack frame into the parent stack frame
 
-# CALL <FUNCTION> (<argument>.*)
+### CALL <FUNCTION> (<argument>.*)
 
   - invokes a function with specific arguments
   - this could be a tool, e.g. QUERY-DB, or it could be a special function, like "ME" which creates a new stack frame and runs the agent with the arguments
   - some functions are asynchronous - those functions
 
-# AWAIT <TICKET>
+### AWAIT <TICKET>
   - pauses the runtime until the value from that await is available
