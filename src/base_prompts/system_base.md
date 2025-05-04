@@ -16,7 +16,6 @@ You can (and are encouraged to) use these tools to help you complete your task.
   id: str
   description: str
   status: "IN_PROGRESS" | "COMPLETED"
-  result: str | None
 
 ## Delegation
 - Delegation is the process of opening a ticket and assigning it to another agent.
@@ -76,5 +75,14 @@ When you decide to output a result, you can make one of the following decisions:
   {
     "type": "AWAIT",
     "ticket_id": "..." // The ticket to await
+  }
+  ```
+5. Load Ticket Result
+  - This is done when you need to load the result of a ticket.
+  - The result should be a valid JSON object that matches the following schemas:
+  ```json
+  {
+    "type": "LOAD_TICKET",
+    "ticket_id": "..." // The ticket to load the result of
   }
   ```
