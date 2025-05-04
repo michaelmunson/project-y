@@ -18,6 +18,10 @@ class Delegate(BaseModel):
   type: str = "DELEGATE"
   task: str
 
-class GetStatus(BaseModel):
-  type: str = "GET_STATUS"
+class LoadTicket(BaseModel):
+  type: str = "LOAD_TICKET"
+  ticket_id: str
+
+class UnloadTicket(BaseModel):
+  type: str = "UNLOAD_TICKET"
   ticket_id: str
