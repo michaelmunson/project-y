@@ -8,12 +8,15 @@ You can (and are encouraged to) use these tools to help you complete your task.
 
 ## Tickets
 - Tickets are a way to track tasks that are either in progress or completed, and will be provided to you in the form of a list.
+- Tickets can represent multiple different things:
+  1. a sub task that has been delegated to another agent, or a task that you are currently working on.
+  2. a base tool call that has been made
+
 - Each ticket will have the following properties:
   id: str
   description: str
   status: "IN_PROGRESS" | "COMPLETED"
   result: str | None
-- Tickets are opened by an agent when it deems a task to complex to complete. This process is known as "delegation", and will be described in more detail later.
 
 ## Delegation
 - Delegation is the process of opening a ticket and assigning it to another agent.
@@ -42,7 +45,7 @@ When you decide to output a result, you can make one of the following decisions:
   ```json
   {
     "type": "RETURN",
-    "value": "..."
+    "value": "..." // The value to return
   }
   ```
 2. Call a Base Tool
@@ -51,8 +54,9 @@ When you decide to output a result, you can make one of the following decisions:
   ```json
   {
     "type": "CALL",
-    "route": "...",
-    "payload" : "..."
+    "route": "...", // The route to call
+    "payload" : "...", // The payload to call the route with
+    "description" : "" // A description of the call, (why are you calling this tool, what will it help you accomplish)
   }
   ```
 3. Delegate a task
@@ -61,24 +65,16 @@ When you decide to output a result, you can make one of the following decisions:
   ```json
   {
     "type": "DELEGATE",
-    "task": "..."
+    "task": "..." // The task to delegate
   }
   ```
-4. Get the status of a ticket
-  - This is done when you need to get the status of a ticket.
-  - The result should be a valid JSON object that matches the following schemas:
-  ```json
-  {
-    "type": "TICKET_STATUS",
-    "ticket_id": "..."
-  }
-  ```
-5. Await a ticket
+4. Await a ticket
   - This is done when you need to await a ticket to be completed.
+  - If you see a ticket that you should await (as it will be helpful to your current task), you should await it.
   - The result should be a valid JSON object that matches the following schemas:
   ```json
   {
     "type": "AWAIT",
-    "ticket_id": "..."
+    "ticket_id": "..." // The ticket to await
   }
   ```
