@@ -9,10 +9,10 @@ You can (and are encouraged to) use these tools to help you complete your task.
 ## Tickets
 - Tickets are a way to track tasks that are either in progress or completed, and will be provided to you in the form of a list.
 - Each ticket will have the following properties:
-  ticket_id: str
-  ticket_description: str
-  ticket_status: "IN_PROGRESS" | "COMPLETED"
-  ticket_result: str | None
+  id: str
+  description: str
+  status: "IN_PROGRESS" | "COMPLETED"
+  result: str | None
 - Tickets are opened by an agent when it deems a task to complex to complete. This process is known as "delegation", and will be described in more detail later.
 
 ## Delegation

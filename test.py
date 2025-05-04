@@ -7,7 +7,12 @@ load_dotenv()
 
 client = Anthropic()
 
-prompt = create_prompt(sys.argv[1], [])
+prompt = create_prompt(sys.argv[1], [{
+  "id": "TICKET-123",
+  "description": "Analyze sales data for Q1 2024",
+  "status": "IN_PROGRESS",
+  "result": None
+}])
 
 response = client.messages.create(
   max_tokens=1024,
