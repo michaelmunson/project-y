@@ -86,3 +86,12 @@ When you decide to output a result, you can make one of the following decisions:
     "ticket_id": "..." // The ticket to load the result of
   }
   ```
+6. Unload Ticket Result
+  - This is done when you need no longer require the result of a ticket.
+  - This is done to free up the context window
+  - The result should be a valid JSON object that matches the following schemas:
+  ```json
+  {
+    "type": "UNLOAD_TICKET",
+    "ticket_id": "..." // The ticket to unload the result of
+  }
