@@ -15,7 +15,7 @@ def create_message_base(task: str, ticket_list: list[dict]):
   return [
     {
       "role": "user",
-      "content": "Here is a list of the current tickets:" + json.dumps(ticket_list)
+      "content": "There are currently no tickets open."
     },
     {
       "role": "assistant",
@@ -24,7 +24,8 @@ def create_message_base(task: str, ticket_list: list[dict]):
     {
       "role": "user",
       "content": "Your task is as follows:\n\n" + task
-    }
+    },
+    
   ]
   
 def create_prompt(task:str, ticket_list:list[dict]):

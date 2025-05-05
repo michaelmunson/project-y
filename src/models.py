@@ -5,7 +5,7 @@ class Return(BaseModel):
   type: str = "RETURN"
   value: str
 
-class Await(BaseModel):
+class AwaitTicket(BaseModel):
   type: str = "AWAIT"
   value: str
 
@@ -17,11 +17,3 @@ class Call(BaseModel):
 class Delegate(BaseModel):
   type: str = "DELEGATE"
   task: str
-
-class LoadTicket(BaseModel):
-  type: str = "LOAD_TICKET"
-  ticket_id: str
-
-class UnloadTicket(BaseModel):
-  type: str = "UNLOAD_TICKET"
-  ticket_id: str
