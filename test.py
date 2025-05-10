@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from anthropic import Anthropic
-from src.prompts import create_prompt
+from lib.prompts import create_prompt
 import sys
 
 load_dotenv()

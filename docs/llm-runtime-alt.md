@@ -50,3 +50,8 @@ avoids overly large context that would otherwise be needed for long tasks.
 
 ### AWAIT <TICKET>
   - pauses the runtime until the value from that await is available
+
+### REQUEST ADDITIONAL CONTEXT
+  - returns:
+    1. the session/ticket id
+    2. 

@@ -89,28 +89,3 @@ if __name__ == "__main__":
         # Run the app
         import uvicorn
         uvicorn.run(app, host="0.0.0.0", port=8000)
-# import os
-# from dotenv import load_dotenv
-# from fastapi import FastAPI, Request
-# from anthropic import Anthropic
-
-# # Load environment variables
-# load_dotenv()
-
-# # Create FastAPI app
-# app = FastAPI()
-
-# @app.post("/llm")
-# async def llm(request: Request):
-#     body = await request.json()
-    
-#     client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-    
-#     response = client.messages.create(
-#         max_tokens=256,
-#         system=(body['system'] if 'system' in body else ""),
-#         messages=(body['messages'] if 'messages' in body else []),
-#         model="claude-3-5-haiku-latest"
-#     )
-    
-#     return "\n".join([(msg.text if msg.type == "text" else "") for msg in response.content])
